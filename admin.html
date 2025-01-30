@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" id="logout">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Painel do Administrador</h2>
+        <button>Postar Vídeo</button>
+        <button>Postar Foto</button>
+        <button>Postar Texto</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rede Social Empresa</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const userRole = localStorage.getItem("userRole");
+
+            console.log("Valor do userRole:", userRole); // Verifica se o LocalStorage está funcionando
+
+            if (userRole !== "admin") {
+                alert("Acesso negado! Você não tem permissão para acessar esta página.");
+                window.location.href = "index.html";
+            } else {
+                alert("Bem-vindo, administrador!");
+            }
+
+            // Adicionar função de logout
+            document.getElementById("logout").addEventListener("click", function() {
+                localStorage.removeItem("userRole");
+                alert("Você saiu do sistema!");
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+</body>
+</html>
