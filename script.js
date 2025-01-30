@@ -11,13 +11,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (userEmail === "admin@example.com" && password === "senha123") {
                 localStorage.setItem("userRole", "admin");
-                alert("Login bem-sucedido como administrador!");
                 console.log("Salvou no LocalStorage: userRole = admin");
+                alert("Login bem-sucedido como administrador!");
+                console.log("Redirecionando para admin.html...");
                 window.location.href = "admin.html";
             } else {
                 localStorage.setItem("userRole", "user");
-                alert("Login bem-sucedido como usuário comum!");
                 console.log("Salvou no LocalStorage: userRole = user");
+                alert("Login bem-sucedido como usuário comum!");
+                console.log("Redirecionando para index.html...");
                 window.location.href = "index.html";
             }
         });
