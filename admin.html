@@ -18,35 +18,49 @@
 
     <main>
         <h2>Painel do Administrador</h2>
-        <button>Postar Vídeo</button>
-        <button>Postar Foto</button>
-        <button>Postar Texto</button>
+        
+        <!-- Botões para postar conteúdo -->
+        <div class="admin-options">
+            <button id="postVideoBtn">Postar Vídeo</button>
+            <button id="postPhotoBtn">Postar Foto</button>
+            <button id="postTextBtn">Postar Texto</button>
+        </div>
+
+        <!-- Formulários para postar conteúdo -->
+        <div id="postForms" class="hidden">
+            <!-- Formulário para postar vídeo -->
+            <form id="videoForm" class="hidden">
+                <h3>Postar Vídeo</h3>
+                <input type="url" id="videoUrl" placeholder="URL do vídeo (YouTube, Vimeo, etc.)" required>
+                <button type="submit">Publicar Vídeo</button>
+            </form>
+
+            <!-- Formulário para postar foto -->
+            <form id="photoForm" class="hidden">
+                <h3>Postar Foto</h3>
+                <input type="file" id="photoFile" accept="image/*" required>
+                <button type="submit">Publicar Foto</button>
+            </form>
+
+            <!-- Formulário para postar texto -->
+            <form id="textForm" class="hidden">
+                <h3>Postar Texto</h3>
+                <textarea id="textContent" placeholder="Digite seu texto aqui..." required></textarea>
+                <button type="submit">Publicar Texto</button>
+            </form>
+        </div>
+
+        <!-- Área para exibir o conteúdo postado -->
+        <div id="contentDisplay">
+            <h3>Conteúdo Postado</h3>
+            <div id="postedContent"></div>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 Rede Social Empresa</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const userRole = localStorage.getItem("userRole");
-
-            console.log("Valor do userRole:", userRole); // Verifica se o LocalStorage está funcionando
-
-            if (userRole !== "admin") {
-                alert("Acesso negado! Você não tem permissão para acessar esta página.");
-                window.location.href = "index.html";
-            } else {
-                alert("Bem-vindo, administrador!");
-            }
-
-            // Adicionar função de logout
-            document.getElementById("logout").addEventListener("click", function() {
-                localStorage.removeItem("userRole");
-                alert("Você saiu do sistema!");
-                window.location.href = "index.html";
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
